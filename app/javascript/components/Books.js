@@ -3,14 +3,14 @@ import Book from './Book'
 
 const Books = (props) => {
 
-  const {books} = props
+  const {books, updateBook} = props
 
   const renderBooks = () => {
     if (books.length === 0){
       return <p>No Items</p>
     }
     return books.map( book => {
-      return <Book key={book.id} {...book} />
+      return <Book key={book.id} {...book} updateBook={updateBook}/>
     })
   }
 

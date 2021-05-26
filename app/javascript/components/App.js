@@ -12,14 +12,29 @@ const App = (props) => {
     setBooks(response.data)
   }
 
+  const addBook = (book) => {
+    let updatedBooks = [book, ...books]
+    setBooks(updatedBooks)
+  }
+
+  const updateBook = (updateBook) => {
+    let updateBooks = books.map(book => {
+      if(book.id !== updateBook.id){
+        return book 
+      } else {
+        return updateBook
+      }
+    })
+    setItems(updateBooks)
+  }
 
   return (
     <div>
       <h1>App.js</h1>
       <button onClick={getBooks}>Get Books</button>
       <button onClick={() =>setShowForm(!showForm)}>Toggle Form</button>
-      {showForm && <BookForm />}
-      <Books books={books}/>
+      {showForm && <BookForm addBook={addBook}/>}
+      <Books books={books} updateBook={updateBook}/>
     </div>
   )
 }
