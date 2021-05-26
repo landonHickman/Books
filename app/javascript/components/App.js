@@ -25,7 +25,7 @@ const App = (props) => {
         return updateBook
       }
     })
-    setItems(updateBooks)
+    setBooks(updateBooks)
   }
 
   return (

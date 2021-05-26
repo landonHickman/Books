@@ -1,12 +1,20 @@
 import React, {useState} from 'react'
+import BookForm from './BookForm'
 
 const Book = (props) => {
-  const {id, title, author} = props
+  const [showForm, setShowForm] = useState(false)
+  const {id, title, author, updateBook} = props
   return (
     <div>
       <h3>Book Title: {title}</h3>
       <h3>Book Author: {author}</h3>
-      
+      <button onClick={()=>setShowForm(!showForm)}>Edit</button>
+      {showForm && <BookForm 
+        updateBook={updateBook}
+        id={id}
+        title={title}
+        author={author}
+        />}
     </div>
   )
 }
