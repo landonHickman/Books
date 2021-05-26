@@ -7,7 +7,7 @@ const Books = (props) => {
 
   const renderBooks = () => {
     if (books.length === 0){
-      return <p>No Items</p>
+      return <p>No Books</p>
     }
     return books.map( book => {
       return <Book key={book.id} {...book} updateBook={updateBook}/>
@@ -16,7 +16,7 @@ const Books = (props) => {
 
   return (
     <div>
-      <h1>Books Here</h1>
+      <h1>Books</h1>
       {renderBooks()}
     </div>
   )

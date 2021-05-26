@@ -30,9 +30,9 @@ const App = (props) => {
 
   return (
     <div>
-      <h1>App.js</h1>
+      <h1>Library</h1>
       <button onClick={getBooks}>Get Books</button>
-      <button onClick={() =>setShowForm(!showForm)}>Toggle Form</button>
+      <button onClick={() =>setShowForm(!showForm)}>Toggle Add Book</button>
       {showForm && <BookForm addBook={addBook}/>}
       <Books books={books} updateBook={updateBook}/>
     </div>
