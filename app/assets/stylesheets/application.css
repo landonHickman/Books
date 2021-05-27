@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+ @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+ body {
+   background-color: aliceblue;
+   font-family: 'Rubik', sans-serif;
+   text-align: center;
+ }
+ button {
+   padding: 10px;
+   border: black 2px solid;
+   border-radius: 25px;
+   font-family: 'Rubik', sans-serif;
+   font-size: 1.15em;
+ }
+ input {
+   height: 30px;
+   font-size: 100%;
+ }

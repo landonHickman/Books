@@ -27,10 +27,12 @@ const BookForm = (props) => {
     <div>
       <h1>{id ? 'Edit' : 'New'}</h1>
       <form onSubmit={handleSubmit}>
-        <p>Title</p>
+        <h4>Title</h4>
         <input value={title} onChange={(e)=>setTitle(e.target.value)}/>
-        <p>Author</p>
+        <h4>Author</h4>
         <input value={author} onChange={(e)=>setAuthor(e.target.value)}/>
+        <p> </p>
+        <br/>
         <button>{id ? 'Update' : 'Create' }</button>
       </form>
     </div>

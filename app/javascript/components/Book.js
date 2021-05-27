@@ -6,8 +6,8 @@ const Book = (props) => {
   const {id, title, author, updateBook, deleteBook} = props
   return (
     <div>
-      <h3>Book Title: {title}</h3>
-      <h3>Book Author: {author}</h3>
+      <h2>Book Title: {title}</h2>
+      <h2>Book Author: {author}</h2>
       <button onClick={()=>setShowForm(!showForm)}>Edit</button>
       <button onClick={()=>deleteBook(id)}>Delete</button>
       {showForm && <BookForm 
