@@ -9,6 +9,7 @@ const App = (props) => {
 
   const getBooks = async () => {
     let response = await axios.get('/books')
+    console.log(response.data)
     setBooks(response.data)
   }
 
@@ -28,13 +29,20 @@ const App = (props) => {
     setBooks(updateBooks)
   }
 
+  const deleteBook = async (id) => {
+    console.log(id)
+    let response = await axios.delete(`/books/${id}`)
+    let deletedBook = books.filter (book => book.id !== response.data.id)
+    setBooks(deletedBook)
+  }
+
   return (
     <div>
       <h1>Library</h1>
       <button onClick={getBooks}>Get Books</button>
       <button onClick={() =>setShowForm(!showForm)}>Toggle Add Book</button>
       {showForm && <BookForm addBook={addBook}/>}
-      <Books books={books} updateBook={updateBook}/>
+      <Books books={books} updateBook={updateBook} deleteBook={deleteBook}/>
     </div>
   )
 }

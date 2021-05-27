@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+before_action :set_book, only: [:destroy, :update]
 
   def app
     render component: "App"
@@ -19,14 +20,21 @@ class BooksController < ApplicationController
   end
 
   def update
-    @book = Book.find(params[:id])
     if(@book.update(book_params))
       render json: @book
     else
       
     end
   end
+
+  def destroy
+    render json: @book.destroy
+  end
+
   private
+  def set_book
+    @book = Book.find(params[:id])
+  end
 
   def book_params
     params.require(:book).permit(:author, :title)
