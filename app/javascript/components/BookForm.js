@@ -12,15 +12,20 @@ const BookForm = (props) => {
     event.preventDefault()
     console.log({author, title})
     const book = {author, title}
-    if(id){
-      let response = await axios.put(`/books/${id}`, book)
-      updateBook(response.data)
-    }else {
-    let response = await axios.post('/books', book)
-    addBook(response.data)
+    try{
+      if(id){
+        let response = await axios.put(`/books/${id}`, book)
+        updateBook(response.data)
+      }else {
+        let response = await axios.post('/books', book)
+        addBook(response.data)
+      }
+      setTitle('')
+      setAuthor('')
     }
-    setTitle('')
-    setAuthor('')
+    catch(err) {
+      alert(err) //works if i delete book off line 20 or 17! gives status code 400 bad request
+    }
   }
 
   return (

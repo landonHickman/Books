@@ -6,11 +6,13 @@ import BookForm from './BookForm'
 const App = (props) => {
   const [books, setBooks] = useState([])
   const [showForm, setShowForm] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   const getBooks = async () => {
-    let response = await axios.get('/books')
+    let response = await axios.get('/books?delay=10')
     console.log(response.data)
     setBooks(response.data)
+    setLoading(false) //doesnt work
   }
 
   const addBook = (book) => {
@@ -42,7 +44,7 @@ const App = (props) => {
       <button onClick={getBooks}>Get Books</button>
       <button onClick={() =>setShowForm(!showForm)}>Toggle Add Book</button>
       {showForm && <BookForm addBook={addBook}/>}
-      <Books books={books} updateBook={updateBook} deleteBook={deleteBook}/>
+      <Books books={books} updateBook={updateBook} deleteBook={deleteBook} loading={loading}/>
     </div>
   )
 }

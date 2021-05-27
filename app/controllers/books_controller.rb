@@ -15,7 +15,7 @@ before_action :set_book, only: [:destroy, :update]
     if(@book.save)
       render json: @book
     else
-      
+      render json: @book.errors.full_messages, status: :unprocessable_entity
     end
   end
 
@@ -23,7 +23,7 @@ before_action :set_book, only: [:destroy, :update]
     if(@book.update(book_params))
       render json: @book
     else
-      
+      render json: @book.errors.full_messages, status: :unprocessable_entity
     end
   end
 
